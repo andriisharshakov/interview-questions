@@ -1,11 +1,8 @@
 # Software design patterns
 
-**WORK IN PROGRESS**
-
-___
-
-
 **Q: What software design patterns do you know?**
+
+## Creational
 
 - Abstract factory
 
@@ -21,15 +18,19 @@ Instead of manually instantiating an object, its construction is delegated to an
 
 - Object pool
 
-Instead of manually instantiating an object, an instance is requested from an object pool, which may return a previously instantiated object suitable for reuse. This is used in performance-critical paths where additional memory allocation is undesired.
+Instead of manually instantiating an object, an instance is requested from an object pool, which may return a previously instantiated object suitable for reuse. This is used in performance-critical paths where additional memory allocation is undesired. Objects in the pool have a lifecycle: Creation - Validation - Destroy.
 
-- Prototype
+- Prototype (aka Clone)
 
 Instead of manually instantiating an object, a previously instantiated and configured instance of an object is copied.
 
 - Singleton
 
-Instead of manually instantiating an object, a single instance is reused across different parts of the program.
+Instead of manually instantiating an object, a single instance is reused across different parts of the program:
+ - Make the default constructor private, to prevent other objects from using the new operator with the Singleton class.
+ - Create a static creation method that acts as a constructor. Under the hood, this method calls the private constructor to create an object and saves it in a static field. All following calls to this method return the cached object.
+
+## Structural
 
 - Adapter
 
@@ -37,23 +38,23 @@ Abstraction is implemented by wrapping an existing type to match the contract de
 
 - Bridge
 
-???
+Bridge is a structural design pattern that lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
 
 - Composite
 
-???
+Composite is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.
 
-- Decorator
+- Decorator (aka Wrapper)
 
-Abstraction is implemented by combining multiple types into a hierarchy of responsibilities.
+Abstraction is implemented by combining multiple types into a hierarchy of responsibilities. A wrapper (= a decorator) is an object that can be linked with some target object. The wrapper contains the same set of methods as the target and delegates to it all requests it receives. However, the wrapper may alter the result by doing something either before or after it passes the request to the target.
 
 - Facade
 
-Abstraction is implemented by subclassing it to a higher-level abstraction with fewer dependencies.
+Abstraction is implemented by subclassing it to a higher-level abstraction with fewer dependencies. In other words, Facade provides a simplified interface to a library, a framework, or any other complex set of classes.
 
 - Flyweight
 
-???
+Flyweight is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state (= intrinsic state, constant data of an object) between multiple objects instead of keeping all of the data in each object.
 
 - Private class data
 
