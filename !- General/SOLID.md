@@ -8,19 +8,19 @@ SOLID is an acronym for 5 design principles in OOP.
 
 - **S** - Single responsibility principle
 
-A class should only have one responsibility. Only changes to a specific part of software specification should affect the code in any one class.
+A class should have only one responsibility and only one reason to change. A class should have a clear and well-defined purpose.
 
 - **O** - Open-closed principle
 
-Software entities should be open for extension but closed for modification.
+Software entities should be open for extension (meaning that their behavior can be changed by adding new code) but closed for modification (which would mean changing existing code).
 
 - **L** - Liskov substitution principle
 
-Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program. In other words, subclasses should honor the contract of their superclasses snd not violate the expectations.
 
 - **I** - Interface segregation principle
 
-Many client-specific interfaces are better than one general-purpose interface.
+No client should be forced to depend on methods it does not use. This means that we should avoid creating large and monolithic interfaces that contain many methods, and instead split them into smaller and more cohesive ones that are specific to each client's needs.
 
 - **D** - Dependency inversion principle
 
