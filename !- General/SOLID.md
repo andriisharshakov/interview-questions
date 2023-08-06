@@ -30,6 +30,87 @@ _Hint: if you're worried you will forget the names, you can always ask the inter
 
 ___
 
+**Q: Identify which SOLID principle is violated in Example 1 and explain why.**
+```python   
+class Customer:
+    def place_order(self, order):
+        # Logic to place an order
+
+    def send_confirmation_email(self, order):
+        # Logic to send an email
+```
+
+The Single Responsibility Principle states that a class should have only one reason to change. In Example 1, the Customer class violates SRP by handling both placing an order and sending a confirmation email. To adhere to SRP, these responsibilities should be separated into different classes.
+
+**Q: In Example 2, how does the code violate the Open/Closed Principle, and how could it be improved?**
+```java
+class PaymentProcessor {
+    public void processPayment(Order order) {
+        if (order.paymentMethod == PaymentMethod.CREDIT_CARD) {
+            // Process credit card payment
+        } else if (order.paymentMethod == PaymentMethod.PAYPAL) {
+            // Process PayPal payment
+        }
+    }
+}
+```
+
+The Open/Closed Principle states that software entities (classes, modules, functions) should be open for extension but closed for modification. In Example 2, the PaymentProcessor violates OCP by directly checking the payment method type and adding more code for each new payment method. A better approach would be to use polymorphism and create separate payment processor classes for each payment method, extending a common interface.
+
+**Q: Discuss the Liskov Substitution Principle violation in Example 3 and propose a solution to adhere to the principle.**
+```c#
+class Bird {
+    public virtual void Fly() {
+        // Logic for flying
+    }
+}
+
+class Ostrich : Bird {
+    public override void Fly() {
+        throw new NotImplementedException("Ostrich cannot fly");
+    }
+}
+```
+
+The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. In Example 3, the Ostrich class violates LSP by throwing an exception for the Fly method. To adhere to LSP, the Ostrich class should either implement a different behavior for flying or not include the Fly method.
+
+**Q: Explain how the code in Example 4 fails to follow the Interface Segregation Principle, and suggest a better design.**
+```python
+class Worker:
+    def work(self):
+        pass
+
+    def eat(self):
+        pass
+```
+
+The Interface Segregation Principle states that a class should not be forced to implement interfaces it does not use. In Example 4, the Worker class violates ISP by forcing implementations of both the work and eat methods. To adhere to ISP, the Worker class should be split into smaller, more focused interfaces based on specific behaviors.
+
+**Q: In Example 5, what issue with the Dependency Inversion Principle is present, and how can it be rectified?**
+```java
+class LightBulb {
+    public void turnOn() {
+        // Turn on the light bulb
+    }
+}
+
+class Switch {
+    private LightBulb bulb;
+
+    public Switch() {
+        bulb = new LightBulb();
+    }
+
+    public void operate() {
+        bulb.turnOn();
+    }
+}
+```
+
+The Dependency Inversion Principle states that high-level modules should not depend on low-level modules; both should depend on abstractions. In Example 5, the Switch class violates DIP by directly creating an instance of LightBulb. To adhere to DIP, the Switch class should depend on an abstraction (interface or abstract class) for the light bulb and receive the actual instance through constructor injection.
+
+___
+
 **Q: Where is the "inversion" in dependency inversion?**
 
 _Credit: [Craig Walls](https://www.javaworld.com/article/2071914/excellent-explanation-of-dependency-injection--inversion-of-control-.html)_
