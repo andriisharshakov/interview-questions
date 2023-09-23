@@ -27,3 +27,5 @@ Each file in this repository covers a specific topic and is neatly organized int
 If you have insights to share, want to add a new topic, or extend an existing one, your contributions are more than welcome. Just ensure you follow the same layout and styling as the rest of the repository to maintain consistency.
 
 In the ever-evolving tech world, your choice - "Being a Software Engineer" ◀️ or ▶️ "Cracking the Interview" - can shape your career. We're here to help you succeed in whichever path you choose. Let's get started!
+
+TODO: create another listing based on this set of Node.js related questions: https://dou.ua/lenta/articles/interview-node-js/
