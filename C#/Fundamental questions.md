@@ -211,3 +211,75 @@ ___
 **Q: What's the difference between Abstract class and Interface?**
 
 *Interface* is a **contract to be implemented**, whilst *Abstract class* is a half-defined **parent class to be inherited** forcing certain aspects to be followed by child classes.
+
+___
+
+** Q: What are the class types in C#?**
+
+- **Abstract classes** are meant to be inherited and can contain a mix of abstract and non-abstract members.
+- **Partial classes** allow a class to be split across multiple files for collaborative development.
+- **Sealed classes** prevent further inheritance of the class.
+- **Static classes** cannot be instantiated and contain only static members.
+
+Let's explore each type:
+
+1. **Abstract Class:**
+   - An abstract class is a class that cannot be instantiated on its own. It is meant to be used as a base class for other classes.
+   - It may contain abstract methods, which are declared without implementation and must be implemented by any non-abstract derived class.
+   - Abstract classes can also have non-abstract methods with implementations.
+   - Example:
+
+     ```csharp
+     public abstract class Shape
+     {
+         public abstract double Area();  // Abstract method
+         public void Display() { Console.WriteLine("Displaying shape"); } // Regular method
+     }
+     ```
+
+2. **Partial Class:**
+   - A partial class allows a class, interface, or struct to be defined in multiple files. The compiler combines all the partial class definitions into a single class during compilation.
+   - It is often used in large projects where multiple developers can work on different parts of a class without interfering with each other.
+   - Example:
+
+     ```csharp
+     // File 1
+     partial class Person
+     {
+         public string FirstName { get; set; }
+     }
+
+     // File 2
+     partial class Person
+     {
+         public string LastName { get; set; }
+     }
+     ```
+
+3. **Sealed Class:**
+   - A sealed class is a class that cannot be inherited. It is marked with the `sealed` keyword.
+   - Sealing a class prevents other classes from deriving from it. It is often used when you want to prevent further modification or extension of a class.
+   - Example:
+
+     ```csharp
+     sealed class FinalClass
+     {
+         // Class members
+     }
+     ```
+
+4. **Static Class:**
+   - A static class is a class that cannot be instantiated, and it can only contain static members (methods, properties, fields).
+   - Static classes are often used for utility classes or classes that provide a set of related functionalities that do not depend on instance state.
+   - All members of a static class must be static, and you access them using the class name rather than creating an instance.
+   - Example:
+
+     ```csharp
+     public static class MathUtility
+     {
+         public static double Add(double x, double y)
+         {
+             return x + y;
+         }
+     }
+     ```
